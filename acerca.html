@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIM - Soluciones Educativas Innovadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    
+        :root {
+            --primary-blue: #ff04bc; 
+            --secondary-blue: #b51583;
+            --accent-blue: #bc0e79; 
+            --light-blue: #e0f2f7; 
+            --text-color: #333;
+            --light-text-color: #f8f8f8;
+            --gradient-bg: linear-gradient(135deg, #700b41 0%, #761a40 100%);
+            --section-padding: 80px 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--accent-blue);
+            color: var(--text-color);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--secondary-blue);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 1em;
+            font-weight: 400;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #b9298b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: var(--section-padding);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: var(--gradient-bg);
+            color: var(--light-text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden; 
+        }
+
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: pulse 10s infinite ease-in-out alternate;
+        }
+        .hero-section::before {
+            width: 300px; height: 300px;
+            top: -50px; left: -50px;
+        }
+        .hero-section::after {
+            width: 400px; height: 400px;
+            bottom: -80px; right: -80px;
+            animation-delay: 2s;
+        }
+
+        .hero-content {
+            z-index: 2; /* Asegura que el contenido esté sobre las formas */
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            color: var(--light-text-color);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--light-text-color);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(219, 52, 191, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #b9299f;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(219, 52, 172, 0.6);
+        }
+
+    
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 5px;
+            background-color: var(--accent-blue);
+            border-radius: 2.5px;
+        }
+        
+        
+        .about-section {
+            background-color: var(--light-blue);
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap; 
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        .about-text h3 {
+            text-align: left;
+            font-size: 2.2rem;
+            color: var(--secondary-blue);
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .vm-section {
+            background-color: #f8f8f8;
+        }
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .vm-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .vm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent-blue);
+        }
+        .vm-card i {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: block;
+        }
+        .vm-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+        }
+        .vm-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+      
+        .values-section {
+            background: var(--gradient-bg);
+            color: var(--light-text-color);
+        }
+        .values-section .section-title {
+            color: var(--gradient-bg);
+        }
+        .values-section .section-title::after {
+            background-color: var(--light-blue);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--light-blue);
+            margin-bottom: 15px;
+        }
+        .value-card h4 {
+            font-size: 1.5rem;
+            color: var(--light-text-color);
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        
+        .process-section {
+            background-color: var(--light-blue);
+        }
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 50px;
+            position: relative;
+        }
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--accent-blue);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .process-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .process-item:nth-child(even) {
+            flex-direction: row-reverse; /* Alternar el lado en pares */
+        }
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            color: var(--light-text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(225, 104, 185, 0.5);
+            margin: 0 40px;
+            flex-shrink: 0;
+        }
+        .process-content {
+            background-color: #ed82c8;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            flex: 1;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .process-content:hover {
+            transform: translateY(-5px);
+        }
+        .process-content h4 {
+            font-size: 1.8rem;
+            color: var(--secondary-blue);
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .process-content p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+       
+        .team-section {
+            background-color: #f8f8f8;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .member-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .member-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-blue);
+            box-shadow: 0 0 0 8px rgba(52, 152, 219, 0.3);
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .member-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .member-card h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-blue);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .member-card p {
+            font-size: 1rem;
+            color: #666;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+        
+        .location-icon {
+            font-size: 0.9em;
+            color: #6c7a89;
+            margin-top: auto; 
+            display: block;
+        }
+
+        
+        .contact-section {
+            background: var(--gradient-bg);
+            color: var(--light-text-color);
+        }
+        .contact-section .section-title {
+            color: var(--light-text-color);
+        }
+        .contact-section .section-title::after {
+            background-color: var(--light-blue);
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 50px auto 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light-text-color);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--light-text-color);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+            box-sizing: border-box; /* Incluye padding en el ancho */
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form button {
+            width: 100%;
+            background-color: var(--accent-blue);
+            color: var(--light-text-color);
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(213, 52, 219, 0.4);
+        }
+        .contact-form button:hover {
+            background-color: #b92982;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(219, 52, 202, 0.6);
+        }
+
+       
+        .footer {
+            background-color: var(--primary-blue);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .footer .social-links {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .footer .social-links a {
+            color: var(--light-blue);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .footer .social-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+
+
+        
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text, .about-image {
+                min-width: unset;
+                width: 100%;
+            }
+            .about-text h3 {
+                text-align: center;
+            }
+            .process-item {
+                flex-direction: column; 
+            }
+            .process-item:nth-child(even) {
+                flex-direction: column; 
+            }
+            .process-icon {
+                margin: 0 auto 20px auto;
+            }
+            .process-content h4 {
+                text-align: center;
+            }
+            .process-steps::before {
+                left: 50%; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .vm-card i {
+                font-size: 2.5rem;
+            }
+            .vm-card h3 {
+                font-size: 1.5rem;
+            }
+            .value-card i {
+                font-size: 2rem;
+            }
+            .value-card h4 {
+                font-size: 1.3rem;
+            }
+            .member-card img {
+                width: 120px;
+                height: 120px;
+            }
+            .member-card h3 {
+                font-size: 1.6rem;
+            }
+            .process-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .process-content h4 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>SACHA: Amor por los peludos.</h1>
+            <p>La plataforma inteligente para una gestión el ingreso de animales de diferente especies y conocer su nesecidades.</p>
+            <a href="#about" class="btn">Descubre más</a>
+        </div>
+    </header>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Un Equipo Joven con una Gran Visión</h3>
+                    <p></p>
+                    <p>Nuestra visión es ser líderes en el bienestar y el cuidado temporal de animales domésticos, integrando servicios de alta calidad con soluciones tecnológicas que promuevan la transparencia, la confianza y el vínculo emocional entre los dueños y sus mascotas, incluso cuando están separados físicamente.
+
+Aspiramos a revolucionar la forma en que se concibe una guardería animal, transformándola en una experiencia integral donde el cuidado va más allá del alojamiento. Imaginamos un espacio donde el juego, la salud y la nutrición de cada animal sean gestionados con detalle y precisión, y donde la información esté siempre al alcance de los dueños a través de una plataforma moderna, interactiva y adaptada a sus necesidades.
+
+Queremos ser reconocidos por nuestra innovación, empatía y compromiso con el bienestar animal, y por contribuir activamente a la educación de los dueños en temas de salud, comportamiento y cuidado responsable de sus mascotas.
+
+En el futuro, planeamos expandir nuestros servicios para incluir asesoría veterinaria remota, historial médico digital, seguimiento nutricional personalizado y actividades interactivas entre mascotas y sus dueños a través de la web, con el objetivo de convertirnos en una referencia nacional en el cuidado inteligente y humano de animales.</p>
+                </div>
+                <div class="about-image">
+                    <img src="1000644607.jpg" alt="Equipo CIM trabajando">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision-mission" class="vm-section">
+        <div class="container">
+            <h2 class="section-title">Nuestra Esencia</h2>
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visión</h3>
+                    <p>Nuestra misión es ofrecer un servicio de guardería animal de alta calidad, en el que cada mascota sea atendida con cariño, respeto y profesionalismo. Nos comprometemos a brindar un entorno seguro, cómodo y estimulante donde los animales puedan desarrollarse emocional y físicamente mientras están lejos de sus hogares.
+
+Creemos que cada mascota es un miembro valioso de la familia, por eso trabajamos con un equipo capacitado y amante de los animales que se enfoca en satisfacer sus necesidades individuales, desde una alimentación balanceada hasta rutinas personalizadas de juego, socialización y descanso.
+
+A través de nuestra plataforma digital, buscamos facilitar la comunicación y la transparencia con los dueños, permitiéndoles acceder en tiempo real a información relevante sobre el estado y actividades diarias de sus animales. Esto incluye actualizaciones sobre su alimentación, hábitos de juego, cuidados médicos (como vacunas, tratamientos o visitas veterinarias) y cualquier observación relevante sobre su comportamiento o bienestar.
+
+Nuestro objetivo es que los dueños puedan sentirse tranquilos y confiados al saber que sus mascotas están en buenas manos, y que pueden seguir conectados con ellas a través de una experiencia digital intuitiva, accesible y segura.</p>
+                </div>
+
+                <div class="vm-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Misión</h3>
+                    <p>Nuestra visión es ser líderes en el bienestar y el cuidado temporal de animales domésticos, integrando servicios de alta calidad con soluciones tecnológicas que promuevan la transparencia, la confianza y el vínculo emocional entre los dueños y sus mascotas, incluso cuando están separados físicamente.
+
+Aspiramos a revolucionar la forma en que se concibe una guardería animal, transformándola en una experiencia integral donde el cuidado va más allá del alojamiento. Imaginamos un espacio donde el juego, la salud y la nutrición de cada animal sean gestionados con detalle y precisión, y donde la información esté siempre al alcance de los dueños a través de una plataforma moderna, interactiva y adaptada a sus necesidades.
+
+Queremos ser reconocidos por nuestra innovación, empatía y compromiso con el bienestar animal, y por contribuir activamente a la educación de los dueños en temas de salud, comportamiento y cuidado responsable de sus mascotas.
+
+En el futuro, planeamos expandir nuestros servicios para incluir asesoría veterinaria remota, historial médico digital, seguimiento nutricional personalizado y actividades interactivas entre mascotas y sus dueños a través de la web, con el objetivo de convertirnos en una referencia nacional en el cuidado inteligente y humano de animales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="values-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Valores</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Innovación</h4>
+                    <p>Constante búsqueda de nuevas soluciones y estrategia aca da una de las necesidades tuyas y de tus peludos.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Seguridad</h4>
+                    <p>Protección y confidencialidad absoluta de tu informacion la de tu peludo y de ti.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Confianza</h4>
+                    <p>Dejanos demostrarte quue te cuidaemos a tupeludo como un hijo.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>Amor</h4>
+                    <p>En este lugar queremos dar un poco de nosotros y demostrar el gran amor que les espera a cada uno de tus peludos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title">Nuestro Proceso</h2>
+            <div class="process-steps">
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-brain"></i></div>
+                    <div class="process-content">
+                        <h4>1. Análisis y Diseño</h4>
+                        <p>Iniciamos con una investigación profunda de las necesidades de los muchos dueños de peludos, definiendo las funcionalidades clave y diseñando una interfaz intuitiva que optimice la experiencia del usuario.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <div class="process-content">
+                        <h4>2. Desarrollo Ágil</h4>
+                        <p>Implementamos las funcionalidades de la plataforma utilizando metodologías ágiles, lo que nos permite iterar rápidamente y entregar valor de forma incremental, asegurando calidad y eficiencia.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="process-content">
+                        <h4>3. Pruebas y Optimización</h4>
+                        <p>Realizamos pruebas exhaustivas para asegurar la estabilidad, seguridad y rendimiento de SACHA. Recopilamos feedback para optimizar la plataforma antes de cada lanzamiento.</p>
+                    </div>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="process-content">
+                        <h4>4. Implementación y Soporte</h4>
+                        <p>Desplegamos la plataforma y ofrecemos soporte continuo para garantizar una transición suave y una experiencia de usuario sin interrupciones, con actualizaciones regulares.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Conoce a Nuestro Equipo</h2>
+            <div class="team-grid">
+                <div class="member-card">
+                    <img src="mar.jpeg" alt="Foto de Mariana Londoño">
+                    <h3>Mariana Londoño</h3>
+                    <p>Estudiante de décimo grado en el Colegio Santa Teresa, con pasión por la programación y el baile. Aspira a ser desarrolladora de software, negociadora internacional y veterinaria. Joven soñadora con un gran amor por los animales y el deseo de combinar la tecnología con los negocios.</p>
+                    <span class="location-icon"><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</span>
+                </div>
+
+                <div class="member-card">
+                    <img src="WhatsApp Image 2025-09-10 at 4.58.24 PM.jpeg" alt="Foto de Sara Ximena">
+                    <h3>Sara Ximena</h3>
+                    <p>Mi nombre es Sara Ximena, tengo 16 años y curso el grado 10°. Estoy comprometida con culminar mi Media Técnica en Desarrollo de Software, ya que tengo grandes metas personales y profesionales. Amo el patinaje, disfruto estar en contacto con la naturaleza y los animales, y creo que el esfuerzo y la disciplina son la clave para alcanzar cualquier sueño.</p>
+                    <span class="location-icon"><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</span>
+                </div>
+
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="text-center" style="color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 600px; margin: 20px auto 40px auto;">¿Tienes alguna pregunta, sugerencia o quieres saber más sobre CIM? ¡Envíanos un mensaje\! Estamos aquí para escucharte.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="tu.email@ejemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" placeholder="Interesado en CIM..." required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sacha - Todos los derechos reservados.</p>
+            <p>Hecho con <i class="fas fa-heart" style="color: #e74c3c;"></i> por el equipo Sacha desde Medellín, Colombia.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

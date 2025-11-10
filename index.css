@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;    /* Centra el contenido verticalmente */
+    min-height: 100vh;      /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+
+    /* --- Configuración de la imagen de fondo --- */
+    background-color: #f893fc; /* ¡IMPORTANTE: Cambia 'your-image.jpg' por la ruta de tu imagen! */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo sin distorsionarse */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Opcional: fija la imagen de fondo para que no se desplace al hacer scroll */
+    /* ------------------------------------------- */
+
+    color: #ffffff; /* Color de texto general para que contraste con la imagen de fondo */
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo semi-transparente para el formulario (negro con 70% de opacidad) */
+    padding: 40px;
+    border-radius: 10px; /* Bordes redondeados para el contenedor del formulario */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad al formulario */
+    width: 350px; /* Ancho fijo del formulario */
+    text-align: center; /* Centra el texto dentro del contenedor del formulario */
+}
+
+h2 {
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: #fff; /* Color blanco para el título */
+}
+
+.input-group {
+    margin-bottom: 20px; /* Espacio entre los grupos de input (etiqueta + input) */
+    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
+}
+
+.input-group label {
+    display: block; /* Hace que la etiqueta ocupe su propia línea */
+    margin-bottom: 8px; /* Espacio entre la etiqueta y el campo de entrada */
+    font-weight: bold; /* Texto de la etiqueta en negrita */
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 20px); /* Ancho del input menos el padding horizontal */
+    padding: 10px; /* Espaciado interno del input */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados para los campos de entrada */
+    background-color: rgb(255, 255, 255); /* Fondo semi-transparente blanco para los inputs */
+    color: #333; /* Color de texto oscuro para los inputs */
+}
+
+button[type="submit"] {
+    background-color: #ff00bf9d; /* Color de fondo azul para el botón */
+    color: rgb(255, 247, 247); /* Color de texto blanco para el botón */
+    padding: 12px 25px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease; /* Animación suave al cambiar el color de fondo */
+}
+
+button[type="submit"]:hover {
+    background-color: #b3007775; /* Color de fondo más oscuro al pasar el ratón por encima del botón */
+}
